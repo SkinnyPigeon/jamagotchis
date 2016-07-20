@@ -8,6 +8,7 @@ var Jamagotchi = function( name, icon ) {
   this.energy = 3;
   this.waste = [];
   this.alive = true;
+  this.ill = false;
 }
 
 Jamagotchi.prototype = {
@@ -30,10 +31,19 @@ Jamagotchi.prototype = {
   },
 
   dead: function() {
-    if( this.energy <= 0 ){
+    if( this.energy <= 0 || 
+        this.waste.length >= 5 ) {
       this.alive = false;
     }
-  }
+  },
+
+  sick: function() {
+    if( this.waste.length >= 3 ) {
+      this.ill = true;
+    }
+  },
+
+
 
 }
 

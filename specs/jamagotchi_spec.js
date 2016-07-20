@@ -44,6 +44,24 @@ describe( "The Jamagotchi", function() {
     assert.equal( false, jeff.alive )
   })
 
+  it( "Should die if there's too much poop", function() {
+    jeff.poop()
+    jeff.poop()
+    jeff.poop()
+    jeff.poop()
+    jeff.poop()
+    jeff.dead()
+    assert.equal( false, jeff.alive )
+  })
+
+  it( "Should get ill if there's too much poop", function() {
+    jeff.poop()
+    jeff.poop()
+    jeff.poop()
+    jeff.sick()
+    assert.equal( true, jeff.ill )
+  })
+
 
 })
 
