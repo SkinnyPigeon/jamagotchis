@@ -1,6 +1,7 @@
 var assert = require('chai').assert
 var Jamagotchi = require('../jamagotchi')
 var Food = require('../food')
+var Poop = require('../poop')
 
 describe( "The Jamagotchi", function() {
   beforeEach( function() {
@@ -18,6 +19,11 @@ describe( "The Jamagotchi", function() {
     assert.equal( "👻", jeff.icon )
   })
 
+  it( "Should be alive", function() {
+    jeff.dead();
+    assert.equal( true, jeff.alive )
+  })
+
   it( "Should be able to eat", function() {
     assert.deepEqual( [ cake ], jeff.food )
   })
@@ -27,4 +33,29 @@ describe( "The Jamagotchi", function() {
     assert.deepEqual( [], jeff.food )
   })
 
+  it( "Should be able to produce new poop", function() {
+    jeff.poop()
+    assert.deepEqual( "💩", jeff.waste[0].icon )
+  })
+
+  it( "Should die without energy", function() {
+    jeff.energy = 0;
+    jeff.dead();
+    assert.equal( false, jeff.alive )
+  })
+
+
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
