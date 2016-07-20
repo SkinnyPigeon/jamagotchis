@@ -1,0 +1,13 @@
+{
+  "name": "jamagotchis",
+  "version": "1.0.0",
+  "description": "",
+  "main": "jamagotchi.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "mocha specs"
+  },
+  "author": "",
+  "license": "ISC"
+}
