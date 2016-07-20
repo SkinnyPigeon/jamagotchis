@@ -62,6 +62,19 @@ describe( "The Jamagotchi", function() {
     assert.equal( true, jeff.ill )
   })
 
+  it( "Should be happy with the right food", function() {
+    jeff.eat( cake )
+    jeff.eat( cake )
+    jeff.setMood()
+    assert.equal( true, jeff.happy )
+  })
+
+  it( "Should get hungry when tummy is empty", function() {
+    jeff.eat( cake )
+    jeff.poop()
+    jeff.setHunger()
+    assert.equal( true, jeff.hungry )
+  })
 
 })
 

@@ -9,6 +9,8 @@ var Jamagotchi = function( name, icon ) {
   this.waste = [];
   this.alive = true;
   this.ill = false;
+  this.happy = false;
+  this.hungry = true;
 }
 
 Jamagotchi.prototype = {
@@ -40,6 +42,19 @@ Jamagotchi.prototype = {
   sick: function() {
     if( this.waste.length >= 3 ) {
       this.ill = true;
+    }
+  },
+
+  setMood: function() {
+    if( this.food.length >= 1 && 
+        this.food.length <= 4 ) {
+      this.happy = true
+    }
+  },
+
+  setHunger: function() {
+    if( this.food.length === 0) {
+      this.hungry = true
     }
   },
 
