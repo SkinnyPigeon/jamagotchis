@@ -18,7 +18,12 @@ Jamagotchi.prototype = {
 
   digest: function() {
       this.food.pop()
+      this.poop()
   },
+
+  poop: function() {
+    
+  }
 
 }
 
