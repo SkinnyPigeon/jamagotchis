@@ -11,6 +11,9 @@ var Tamamoji = function( name, icon ) {
   this.ill = false;
   this.happy = false;
   this.hungry = true;
+  this.damage = 0;
+  this.health = 100;
+  this.special = 3;
 }
 
 Tamamoji.prototype = {
@@ -55,6 +58,21 @@ Tamamoji.prototype = {
   setHunger: function() {
     if( this.food.length === 0) {
       this.hungry = true
+    }
+  },
+
+  punch: function( opponent ) {
+    this.damage = 5;
+    opponent.health -= this.damage;
+    this.damage = 0;
+  },
+
+  super: function( opponent ) {
+    if( this.health >= 50 && this.special > 0 ) {
+      this.damage = 15;
+      opponent.health -= this.damage;
+      this.damage = 0;
+      this.special -= 1;
     }
   },
 

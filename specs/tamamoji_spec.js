@@ -6,6 +6,7 @@ var Poop = require('../poop')
 describe( "The Tamamoji", function() {
   beforeEach( function() {
     jeff = new Jamagotchi( "Jeff", "👻" )
+    dave = new Jamagotchi( "Dave", "🤕" )
 
     cake = new Food( "Cake")
     jeff.eat( cake )
@@ -75,6 +76,44 @@ describe( "The Tamamoji", function() {
     jeff.setHunger()
     assert.equal( true, jeff.hungry )
   })
+
+  it( "Should have some health", function() {
+    assert.equal( 100, jeff.health )
+  })
+
+  it( "Should start with no damage", function() {
+    assert.equal( 0, jeff.damage )
+  })
+
+  it( "Should be able to damage Dave", function() {
+    jeff.punch( dave )
+    assert.equal( 95, dave.health )
+  })
+
+  it( "Should be able to pull a super on Dave", function() {
+    jeff.super( dave )
+    assert.equal( 85, dave.health )
+  })
+
+  it( "Should not be able to keep doing Supers on Dave", function() {
+    jeff.super( dave )
+    jeff.super( dave )
+    jeff.super( dave )
+    jeff.super( dave )
+    assert.equal( 55, dave.health )
+  })
+
+  it( "Should not let Dave do a super on Jeff when his health is too low", function() {
+    jeff.super( dave )
+    jeff.super( dave )
+    jeff.super( dave )
+    jeff.punch( dave )
+    jeff.punch( dave )
+    dave.super( jeff )
+    assert.equal( 100, jeff.health )
+  })
+
+
 
 })
 
