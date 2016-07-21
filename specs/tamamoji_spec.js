@@ -40,7 +40,7 @@ describe( "The Tamamoji", function() {
   })
 
   it( "Should die without energy", function() {
-    jeff.energy = 0;
+    jeff.health = 0;
     jeff.dead();
     assert.equal( false, jeff.alive )
   })
@@ -97,20 +97,49 @@ describe( "The Tamamoji", function() {
 
   it( "Should not be able to keep doing Supers on Dave", function() {
     jeff.super( dave )
+    jeff.energy = 3
+
     jeff.super( dave )
+    jeff.energy = 3
+
     jeff.super( dave )
+    jeff.energy = 3
+
     jeff.super( dave )
+    jeff.energy = 3
+
     assert.equal( 55, dave.health )
   })
 
   it( "Should not let Dave do a super on Jeff when his health is too low", function() {
     jeff.super( dave )
+    jeff.energy = 3
+    
     jeff.super( dave )
+    jeff.energy = 3
+
     jeff.super( dave )
+    jeff.energy = 3
+
     jeff.punch( dave )
+    jeff.energy = 3
+
     jeff.punch( dave )
+    jeff.energy = 3
+
     dave.super( jeff )
     assert.equal( 100, jeff.health )
+  })
+
+  it( "Should lose energy when punching", function() {
+    jeff.punch( dave )
+    assert.equal( 2, jeff.energy )
+  })
+
+  it( "Should regain energy when resting", function() {
+    jeff.punch( dave )
+    jeff.rest()
+    assert.equal( 3, jeff.energy )
   })
 
 
