@@ -1,9 +1,9 @@
 var assert = require('chai').assert
-var Jamagotchi = require('../jamagotchi')
+var Jamagotchi = require('../tamamoji')
 var Food = require('../food')
 var Poop = require('../poop')
 
-describe( "The Jamagotchi", function() {
+describe( "The Tamamoji", function() {
   beforeEach( function() {
     jeff = new Jamagotchi( "Jeff", "👻" )
 

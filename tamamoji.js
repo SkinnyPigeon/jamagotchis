@@ -1,7 +1,7 @@
 var _ = require('lodash')
 var Poop = require('./poop')
 
-var Jamagotchi = function( name, icon ) {
+var Tamamoji = function( name, icon ) {
   this.name = name;
   this.icon = icon;
   this.food = [];
@@ -13,7 +13,7 @@ var Jamagotchi = function( name, icon ) {
   this.hungry = true;
 }
 
-Jamagotchi.prototype = {
+Tamamoji.prototype = {
   eat: function( food ) {
     this.food.push( food )
   },
@@ -62,7 +62,7 @@ Jamagotchi.prototype = {
 
 }
 
-module.exports = Jamagotchi;
+module.exports = Tamamoji;
 
 
 
